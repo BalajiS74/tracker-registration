@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusTrack Pro - Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #dbeafe;
+            --secondary: #64748b;
+            --success: #10b981;
+            --error: #ef4444;
+            --warning: #f59e0b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --subsection-bg: #f1f5f9;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-icon i {
+            font-size: 32px;
+            color: var(--primary);
+        }
+
+        .logo h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .logo p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .form-section {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .info-section {
+            flex: 0 0 40%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-header {
+            margin-bottom: 30px;
+        }
+
+        .card-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .card-header p {
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            flex: 1 1 calc(50% - 20px);
+            min-width: 200px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group.full-width {
+            flex: 1 1 100%;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-size: 18px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 15px 14px 50px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 15px;
+            font-weight: 400;
+            transition: all 0.3s;
+            background-color: #fcfcfc;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            background-color: white;
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 16px;
+            padding-right: 45px;
+        }
+
+        .subsection {
+            margin-bottom: 20px;
+            border: 1.5px solid var(--border);
+            padding: 20px;
+            border-radius: var(--radius);
+            background: var(--subsection-bg);
+            transition: all 0.3s ease;
+        }
+
+        .subsection.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .subsection-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .subsection-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+
+        .subsection-icon i {
+            color: white;
+            font-size: 16px;
+        }
+
+        .subsection h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .subsection p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px -1px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .message {
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+
+        .success {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            display: block;
+        }
+
+        .error {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--error);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            display: block;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 25px;
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .login-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Info Section Styles */
+        .info-section h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .features-list i {
+            background: rgba(255, 255, 255, 0.2);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            flex-shrink: 0;
+            font-size: 12px;
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: var(--radius);
+            margin-top: 20px;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .testimonial .author {
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .card-content {
+                flex-direction: column;
+            }
+            
+            .info-section {
+                order: -1;
+                padding: 30px;
+            }
+            
+            .form-section {
+                padding: 30px;
+            }
+            
+            .form-group {
+                flex: 1 1 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            
+            .card {
+                border-radius: 16px;
+            }
+            
+            .form-section, .info-section {
+                padding: 25px 20px;
+            }
+            
+            .logo h1 {
+                font-size: 26px;
+            }
+            
+            .card-header h2 {
+                font-size: 22px;
+            }
+            
+            .form-control {
+                padding: 12px 12px 12px 45px;
+            }
+            
+            .subsection {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .form-section, .info-section {
+                padding: 20px 15px;
+            }
+            
+            .logo-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .logo-icon i {
+                font-size: 26px;
+            }
+        }
+
+        /* Loading animation for button */
+        .btn-loading {
+            position: relative;
+            color: transparent;
+        }
+
+        .btn-loading::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border: 2px solid transparent;
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: button-loading-spinner 1s ease infinite;
+        }
+
+        @keyframes button-loading-spinner {
+            from {
+                transform: rotate(0turn);
+            }
+            to {
+                transform: rotate(1turn);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-bus"></i>
+            </div>
+            <h1> Scad Bus</h1>
+            <p>Real-time bus tracking solution for colleges and organizations</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-content">
+                <div class="form-section">
+                    <div class="card-header">
+                        <h2>Create Account 🤖</h2>
+                        <p>Join thousands tracking their buses in real-time 🚌</p>
+                    </div>
+                    
+                    <form id="registerForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="name">Full Name</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user input-icon"></i>
+                                    <input type="text" id="name" class="form-control" placeholder="Enter your full name" required />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-envelope input-icon"></i>
+                                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="password">Password</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-lock input-icon"></i>
+                                    <input type="password" id="password" class="form-control" placeholder="Create a password" required />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-phone input-icon"></i>
+                                    <input type="text" id="phone" class="form-control" placeholder="Enter your phone number" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="gender">Gender</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-venus-mars input-icon"></i>
+                                    <select id="gender" class="form-control">
+                                        <option value="">Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="role">Role</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user-tag input-icon"></i>
+                                    <select id="role" class="form-control" required>
+                                        <option value="">Select Role</option>
+                                        <option value="student">Student</option>
+                                        <option value="parent">Parent</option>
+                                        <option value="staff">Staff</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Parents Section -->
+                        <div id="parentsSection" class="subsection" style="display:none;">
+                            <div class="subsection-header">
+                                <div class="subsection-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h4>Parents / Guardians</h4>
+                            </div>
+                            <p>Add up to 2 parents or guardians (optional)</p>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Parent 1 Name</label>
+                                    <input type="text" id="parent1_name" class="form-control" placeholder="Parent 1 Name" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Parent 1 Phone</label>
+                                    <input type="text" id="parent1_phone" class="form-control" placeholder="Parent 1 Phone" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Parent 2 Name</label>
+                                    <input type="text" id="parent2_name" class="form-control" placeholder="Parent 2 Name" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Parent 2 Phone</label>
+                                    <input type="text" id="parent2_phone" class="form-control" placeholder="Parent 2 Phone" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Emergency Contact Section -->
+                        <div id="emergencySection" class="subsection" style="display:none;">
+                            <div class="subsection-header">
+                                <div class="subsection-icon">
+                                    <i class="fas fa-first-aid"></i>
+                                </div>
+                                <h4>Emergency Contact</h4>
+                            </div>
+                            <p>Add an emergency contact (optional)</p>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" id="emergency_name" class="form-control" placeholder="Emergency Contact Name" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="emergency_phone" class="form-control" placeholder="Emergency Contact Phone" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="emergency_relation" class="form-control" placeholder="Relationship" />
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn" id="submitBtn">
+                            Create Account
+                        </button>
+                        
+                        <div id="message" class="message"></div>
+                    </form>
+                    
+                    <!-- <div class="login-link">
+                        Already have an account? <a href="#">Sign In</a>
+                    </div> -->
+                </div>
+                
+                <div class="info-section">
+                    <h3>Why Choose Scad Bus ?</h3>
+                    <ul class="features-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Real-time Tracking</strong>
+                                <p>Know exactly where your bus is at all times</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-bell"></i>
+                            <div>
+                                <strong>Instant Notifications</strong>
+                                <p>Get alerts for arrivals, delays, and emergencies</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <strong>Safety First</strong>
+                                <p>Emergency features for peace of mind</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <strong>Performance Analytics</strong>
+                                <p>Track bus efficiency and route optimization</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="testimonial">
+                        <p>"Scad Bus has completely transformed how our colleges manages transportation. Parents love the real-time updates!"</p>
+                        <div class="author"> - colleges Administrator</div>
+                    </div>
+                    <div class="logo">
+                        <p style="font-size: 12px; margin-top: 20px; color: rgba(255, 255, 255, 0.7);">© 2024 Scad Bus. All rights reserved.</p>
+                        <!-- my company name is ziotix -->
+                        <p style="font-size: 15px; margin-top: 5px; color: rgb(255, 255, 255);">Powered by Ziotix ❤️</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const backendURL = "https://trakerbackend.onrender.com/api/auth/signup";
+
+        const roleSelect = document.getElementById("role");
+        const parentsSection = document.getElementById("parentsSection");
+        const emergencySection = document.getElementById("emergencySection");
+
+        // Show/hide parents or emergency sections based on role
+        roleSelect.addEventListener("change", () => {
+            const role = roleSelect.value;
+            
+            // Hide both sections first
+            parentsSection.style.display = "none";
+            emergencySection.style.display = "none";
+            parentsSection.classList.remove('active');
+            emergencySection.classList.remove('active');
+            
+            // Show appropriate section with animation
+            if (role === "student") {
+                parentsSection.style.display = "block";
+                parentsSection.classList.add('active', 'fade-in');
+            } else if (role === "staff") {
+                emergencySection.style.display = "block";
+                emergencySection.classList.add('active', 'fade-in');
+            }
+        });
+
+        document.getElementById("registerForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById("submitBtn");
+            const originalBtnText = submitBtn.textContent;
+            const message = document.getElementById("message");
+            
+            // Show loading state
+            submitBtn.classList.add('btn-loading');
+            submitBtn.disabled = true;
+            message.textContent = "";
+            message.className = "message";
+            
+            // Get form values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const phone = document.getElementById("phone").value;
+            const gender = document.getElementById("gender").value;
+            const role = document.getElementById("role").value;
+
+            // Parents array (for student)
+            let parents = [];
+            if (role === "student") {
+                const p1_name = document.getElementById("parent1_name").value;
+                const p1_phone = document.getElementById("parent1_phone").value;
+                const p2_name = document.getElementById("parent2_name").value;
+                const p2_phone = document.getElementById("parent2_phone").value;
+
+                if(p1_name || p1_phone) parents.push({name: p1_name, phone: p1_phone});
+                if(p2_name || p2_phone) parents.push({name: p2_name, phone: p2_phone});
+            }
+
+            // Emergency Contact (for staff)
+            let emergencyContact = null;
+            if (role === "staff") {
+                const e_name = document.getElementById("emergency_name").value;
+                const e_phone = document.getElementById("emergency_phone").value;
+                const e_relation = document.getElementById("emergency_relation").value;
+                if(e_name || e_phone || e_relation) emergencyContact = {name: e_name, phone: e_phone, relation: e_relation};
+            }
+
+            const payload = { name, email, password, phone, gender, role };
+            if(parents.length) payload.parents = parents;
+            if(emergencyContact) payload.emergencyContact = emergencyContact;
+
+            try {
+                const res = await fetch(backendURL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+                
+                const data = await res.json();
+
+                if (res.ok) {
+                    message.textContent = "🎉 Account created successfully! Redirecting...";
+                    message.className = "message success";
+                    document.getElementById("registerForm").reset();
+                } else {
+                    message.textContent = data.message || "Registration failed. Please try again.";
+                    message.className = "message error";
+                }
+            } catch (err) {
+                message.textContent = "Network error. Please check your connection and try again.";
+                message.className = "message error";
+            } finally {
+                // Reset button state
+                submitBtn.classList.remove('btn-loading');
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+
+        // Optional: pre-fill role if invite link contains it
+        const params = new URLSearchParams(window.location.search);
+        const roleParam = params.get("role");
+        if (roleParam) {
+            document.getElementById("role").value = roleParam;
+            // Trigger change event to show appropriate sections
+            document.getElementById("role").dispatchEvent(new Event('change'));
+        }
+    </script>
+</body>
+</html>
